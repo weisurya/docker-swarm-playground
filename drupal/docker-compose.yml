@@ -4,25 +4,25 @@ services:
   drupal:
     image: weisurya95/custom-drupal
     ports:
-      - '8080:80'
+      - "8080:80"
     volumes:
       - drupal-modules:/var/www/html/modules
       - drupal-profiles:/var/www/html/profiles
       - drupal-sites:/var/www/html/sites
       - drupal-themes:/var/www/html/themes
 
-    postgres:
-      image: postgres:9.6
-      environment:
-        - POSTGRES_USER_FILE=/run/secrets/psql-user
-        - POSTGRES_PASSWORD_FILE=/run/secrets/psql-pw
-        - POSTGRES_DB_FILE=/run/secrets/psql-db
-      volumes:
-        - drupal-data:/var/lib/postgresql/data
-      secrets:
-        - psql-user
-        - psql-pw
-        - psql-db
+  postgres:
+    image: postgres:9.6
+    environment:
+      - POSTGRES_USER_FILE=/run/secrets/psql-user
+      - POSTGRES_PASSWORD_FILE=/run/secrets/psql-pw
+      - POSTGRES_DB_FILE=/run/secrets/psql-db
+    volumes:
+      - drupal-data:/var/lib/postgresql/data
+    secrets:
+      - psql-user
+      - psql-pw
+      - psql-db
 
 volumes: 
   drupal-modules:
