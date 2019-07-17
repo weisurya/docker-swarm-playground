@@ -20,7 +20,9 @@ services:
       volumes:
         - drupal-data:/var/lib/postgresql/data
       secrets:
+        - psql-user
         - psql-pw
+        - psql-db
 
 volumes: 
   drupal-modules:
