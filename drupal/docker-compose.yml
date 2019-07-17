@@ -2,7 +2,7 @@ version: '3.1'
 
 services: 
   drupal:
-    image: weisurya95/custom-drupal
+    image: weisurya95/drupal-bootstrap
     ports:
       - "1010:80"
     volumes:
