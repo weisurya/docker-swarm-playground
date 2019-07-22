@@ -13,7 +13,7 @@ services:
     deploy:
       placement:
         constraints:
-          - node.labels.ssd = true
+          - node.labels.ssd == true
   vote:
     image: bretfisher/examplevotingapp_vote
     ports: 
@@ -26,21 +26,21 @@ services:
         constraints:
           - node.role == worker
   result:
-      image: bretfisher/examplevotingapp_result
-      ports:
-        - '5001:80'
-      networks:
-        - backend
+    image: bretfisher/examplevotingapp_result
+    ports:
+      - '5001:80'
+    networks:
+      - backend
   worker:
-      image: bretfisher/examplevotingapp_worker:java
-      networks:
-          - frontend
-          - backend
-      deploy:
-        mode: global
-        placement:
-          constraints:
-            - node.role != manager
+    image: bretfisher/examplevotingapp_worker:java
+    networks:
+        - frontend
+        - backend
+    deploy:
+      mode: global
+      placement:
+        constraints:
+          - node.role != manager
 networks:
   frontend: null
   backend: null
