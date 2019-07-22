@@ -45,4 +45,4 @@ networks:
   frontend: null
   backend: null
 volumes:
-  db_data: null
+  db-data: null
