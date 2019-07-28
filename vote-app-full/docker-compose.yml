@@ -11,7 +11,7 @@ services:
     networks:
       - frontend
     deploy:
-      replicase: 1
+      replicas: 1
       update_config:
         failure_action: rollback
     configs:
@@ -31,7 +31,7 @@ services:
       retries: 3
       start_period: 60s
     deploy:
-      replicase: 1
+      replicas: 1
       update_config:
         failure_action: rollback
     configs:
